@@ -22,24 +22,18 @@ const knex  = require ('../Model/home_knex')
         })   
     })
 
-
     
     app.get('/get_post',(req,res)=>{
         knex.get_post()
         .then((data)=>{
-
-            res.send(data.reverse())
-            
-            
+            res.send(data.reverse())   
         })
         .catch((err)=>{
             res.send(err)
         })
-        
     })
     
 
- 
     app.get('/get_user',(req,res)=>{
         knex.get_user()
         .then((data)=>{
@@ -49,6 +43,8 @@ const knex  = require ('../Model/home_knex')
             res.send(err)
         })
     })
+
+    
     app.get("/user_name",(req,res)=>{
         var token = req.query.token
         jwt.verify(token, 'aadil', (err,user_detail)=>{

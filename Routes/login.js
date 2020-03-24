@@ -28,7 +28,7 @@ module.exports=(app,jwt)=>{
                         "jwt": data}, 'aadil');
                       res.cookie(token)
                       res.send(token)
-}
+                }
                 else{
                     res.send('password is wrong')
                 }
@@ -41,9 +41,8 @@ module.exports=(app,jwt)=>{
     
     app.get('/verify',(req,res)=>{ 
         var token = req.query.token;
-        jwt.verify(token, 'aadil', (err,user_detail)=>{
+        jwt.verify(token, 'aadil', (err)=>{
             if(!err){
-                // console.log(user_detail);
                 res.send(true)
             }
             else{
